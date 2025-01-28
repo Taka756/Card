@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'me.gentilpinto.businesscard'
+    namespace 'com.example.businesscard'
     compileSdk 33
 
     defaultConfig {
-        applicationId "me.gentilpinto.businesscard"
+        applicationId 'my.project.businesscard'
         minSdk 21
         targetSdk 33
         versionCode 1

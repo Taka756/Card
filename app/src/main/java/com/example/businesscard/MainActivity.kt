@@ -1,4 +1,4 @@
-package me.gentilpinto.businesscard
+package com.example.businesscard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,8 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.gentilpinto.businesscard.ui.theme.BusinessCardTheme
-import me.gentilpinto.businesscard.ui.theme.Green
+import com.example.businesscard.ui.theme.BusinessCardTheme
+import com.example.businesscard.ui.theme.Green
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
             BusinessCardTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = Color(0xFF073042)
+                    modifier = Modifier.fillMaxSize(), color = Color.White
                 ) {
                     BusinessCard()
                 }
@@ -49,24 +49,23 @@ fun BusinessCard() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
     ) {
-        val image = painterResource(R.drawable.android_logo)
+        val image = painterResource(R.drawable.senator)
         Image(
             painter = image, contentDescription = null, Modifier.fillMaxWidth(0.3f)
         )
-        Text(text = stringResource(R.string.my_name), fontSize = 50.sp, color = Color.White)
-        Text(text = stringResource(R.string.my_title), fontSize = 25.sp, color = Green)
+        Text(text = stringResource(R.string.my_name), fontSize = 35.sp)
+        Text(text = stringResource(R.string.my_title), fontSize = 25.sp)
         Spacer(modifier = Modifier.padding(bottom = 200.dp))
-        Divider(modifier = Modifier.fillMaxWidth(), color = Color(0xFF4F6C79))
+        Divider(modifier = Modifier.fillMaxWidth())
         ContactRow(
             text = stringResource(R.string.my_phone_number),
-            textBlur = 5.dp,
             icon = Icons.Rounded.Phone
         )
-        Divider(modifier = Modifier.fillMaxWidth(), color = Color(0xFF4F6C79))
+        Divider(modifier = Modifier.fillMaxWidth())
         ContactRow(
             text = stringResource(R.string.twitter_handle), icon = Icons.Rounded.Share
         )
-        Divider(modifier = Modifier.fillMaxWidth(), color = Color(0xFF4F6C79))
+        Divider(modifier = Modifier.fillMaxWidth())
         ContactRow(
             text = stringResource(R.string.my_email), icon = Icons.Rounded.Email
         )
@@ -75,7 +74,7 @@ fun BusinessCard() {
 
 @Composable
 fun ContactRow(
-    text: String, icon: ImageVector, textBlur: Dp = 0.dp
+    text: String, icon: ImageVector
 ) {
     Row(
         horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(16.dp)
@@ -83,14 +82,11 @@ fun ContactRow(
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = Green,
             modifier = Modifier.weight(1f)
         )
         Text(
-            text = text, color = Color.White, modifier = Modifier
-                .weight(3f)
-                .blur(textBlur)
-        )
+            text = text, modifier = Modifier
+                .weight(3f))
     }
 }
 

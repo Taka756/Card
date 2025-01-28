@@ -1,4 +1,4 @@
-package me.gentilpinto.businesscard
+package com.example.businesscard
 
 import org.junit.Test
 

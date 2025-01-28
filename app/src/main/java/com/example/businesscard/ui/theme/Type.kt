@@ -1,4 +1,4 @@
-package me.gentilpinto.businesscard.ui.theme
+package com.example.businesscard.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
